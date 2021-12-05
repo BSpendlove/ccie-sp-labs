@@ -1,0 +1,24 @@
+csr7#show mpls traffic-eng tunnels detail
+
+P2P TUNNELS/LSPs:
+
+LSP Tunnel xrv1_t0 is signalled, connection is up
+  InLabel  : GigabitEthernet3, implicit-null
+  Prev Hop : 10.0.57.5
+  OutLabel :  - 
+  RSVP Signalling Info:
+       Src 10.255.255.1, Dst 10.255.255.7, Tun_Id 0, Tun_Instance 3
+    RSVP Path Info:
+      My Address: 10.255.255.7   
+      Explicit Route:  NONE
+      Record   Route:   NONE
+      Tspec: ave rate=0 kbits, burst=1000 bytes, peak rate=0 kbits
+    RSVP Resv Info:
+      Record   Route:   NONE
+      Fspec: ave rate=0 kbits, burst=1000 bytes, peak rate=0 kbits
+
+P2MP TUNNELS:
+
+P2MP SUB-LSPS:
+csr7#
+csr7#

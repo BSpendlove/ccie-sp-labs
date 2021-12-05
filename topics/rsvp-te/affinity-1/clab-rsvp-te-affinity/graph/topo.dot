@@ -1,0 +1,20 @@
+graph topo {
+	xrv5--csr7[ color=black ];
+	xrv1--xrv3[ color=black ];
+	xrv3--xrv6[ color=black ];
+	xrv4--xrv5[ color=black ];
+	xrv5--xrv6[ color=black ];
+	xrv1--csr2[ color=black ];
+	csr2--xrv3[ color=black ];
+	csr2--xrv4[ color=black ];
+	xrv6--csr7[ color=black ];
+	csr2 [ color=red, fillcolor=red, label=csr2, style=filled, xlabel=vr-csr ];
+	csr7 [ color=red, fillcolor=red, label=csr7, style=filled, xlabel=vr-csr ];
+	xrv1 [ color=red, fillcolor=red, label=xrv1, style=filled, xlabel=vr-xrv ];
+	xrv3 [ color=red, fillcolor=red, label=xrv3, style=filled, xlabel=vr-xrv ];
+	xrv4 [ color=red, fillcolor=red, label=xrv4, style=filled, xlabel=vr-xrv ];
+	xrv5 [ color=red, fillcolor=red, label=xrv5, style=filled, xlabel=vr-xrv ];
+	xrv6 [ color=red, fillcolor=red, label=xrv6, style=filled, xlabel=vr-xrv ];
+
+}
+

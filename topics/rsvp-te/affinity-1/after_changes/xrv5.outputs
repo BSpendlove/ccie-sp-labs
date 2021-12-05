@@ -1,0 +1,56 @@
+
+RP/0/0/CPU0:xrv5#show lldp neighbors
+Sun Dec  5 18:10:35.333 UTC
+Capability codes:
+        (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+        (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+
+Device ID       Local Intf          Hold-time  Capability     Port ID
+xrv4            Gi0/0/0/0           120        R               Gi0/0/0/0
+xrv6            Gi0/0/0/1           120        R               Gi0/0/0/1
+csr7.example.com Gi0/0/0/2           120        R               Gi3
+
+Total entries displayed: 3
+
+RP/0/0/CPU0:xrv5#show mpls traffic-eng topology ?
+  A.B.C.D          Show topology based on router-id or interface IPv4 address
+  affinity         MPLS traffic-eng topology affinity/color information
+  brief            Use brief format
+  isis             Show topology nodes learned from IS-IS
+  model-type       Show topology based on bandwidth constraints model type
+  ospf             Show topology nodes learned from OSPF
+  path             MPLS traffic-eng path information
+  segment-routing  Display topology including Segment-Routing information
+  srlg             MPLS traffic-eng topology SRLG information
+  standby          Standby node specific information
+  summary          MPLS traffic-eng topology summary information
+  |                Output Modifiers
+  <cr>             
+RP/0/0/CPU0:xrv5#show mpls traffic-eng topology 10.255.255.5 affinity 
+Sun Dec  5 18:10:54.092 UTC
+
+
+IGP Id: 10.255.255.5, MPLS TE Id: 10.255.255.5 Router Node  (OSPF 1 area 0)
+RP/0/0/CPU0:xrv5#
+RP/0/0/CPU0:xrv5#conf t
+Sun Dec  5 18:10:58.192 UTC
+RP/0/0/CPU0:xrv5(config)#mpls traffic-eng 
+RP/0/0/CPU0:xrv5(config-mpls-te)#int g0/0/0/0
+RP/0/0/CPU0:xrv5(config-mpls-te-if)#attribute-flags 0x2
+RP/0/0/CPU0:xrv5(config-mpls-te-if)#commit
+Sun Dec  5 18:11:09.121 UTC
+RP/0/0/CPU0:xrv5(config-mpls-te-if)#end
+RP/0/0/CPU0:xrv5#show mpls traffic-eng topology 10.255.255.5 affinity 
+Sun Dec  5 18:11:11.221 UTC
+
+
+IGP Id: 10.255.255.5, MPLS TE Id: 10.255.255.5 Router Node  (OSPF 1 area 0)
+  Link[0]:      Intf Address: 10.0.45.5, Nbr Intf Address: 10.0.45.4
+      Attribute Flags: 0x2
+      Ext Admin Group: 
+          Length: 256 bits
+          Value : 0x::2
+      Attribute Names: 
+      Unnamed bit    : 1 
+
+RP/0/0/CPU0:xrv5#

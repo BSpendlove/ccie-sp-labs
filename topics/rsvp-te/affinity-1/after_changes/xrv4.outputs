@@ -1,0 +1,49 @@
+RP/0/0/CPU0:xrv4#show lldp neighbors
+Sun Dec  5 18:09:38.697 UTC
+Capability codes:
+        (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+        (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+
+Device ID       Local Intf          Hold-time  Capability     Port ID
+xrv5            Gi0/0/0/0           120        R               Gi0/0/0/0
+csr2.example.com Gi0/0/0/2           120        R               Gi4
+
+Total entries displayed: 2
+
+RP/0/0/CPU0:xrv4#conf t
+Sun Dec  5 18:09:40.067 UTC
+RP/0/0/CPU0:xrv4(config)#mpls traffic-eng 
+RP/0/0/CPU0:xrv4(config-mpls-te)#int g0/0/0/0
+RP/0/0/CPU0:xrv4(config-mpls-te-if)#attribute-flags 0x2
+RP/0/0/CPU0:xrv4(config-mpls-te-if)#int g0/0/0/2       
+RP/0/0/CPU0:xrv4(config-mpls-te-if)#attribute-flags 0x2
+RP/0/0/CPU0:xrv4(config-mpls-te-if)#commit
+Sun Dec  5 18:09:55.806 UTC
+RP/0/0/CPU0:xrv4(config-mpls-te-if)#end
+RP/0/0/CPU0:xrv4#show mpls traffic-eng topology 10.255.255.4 ?
+  affinity         MPLS traffic-eng topology affinity/color information
+  brief            Use brief format
+  link-only        Limit output to a single link; also match neighbor address
+  segment-routing  Display topology including Segment-Routing information
+  standby          Standby node specific information
+  |                Output Modifiers
+  <cr>             
+RP/0/0/CPU0:xrv4#show mpls traffic-eng topology 10.255.255.4 affinity 
+Sun Dec  5 18:10:05.845 UTC
+
+
+IGP Id: 10.255.255.4, MPLS TE Id: 10.255.255.4 Router Node  (OSPF 1 area 0)
+  Link[0]:      Intf Address: 10.0.45.4, Nbr Intf Address: 10.0.45.5
+      Attribute Flags: 0x2
+      Ext Admin Group: 
+          Length: 256 bits
+          Value : 0x::2
+      Attribute Names: 
+      Unnamed bit    : 1 
+  Link[1]:      Intf Address: 10.0.24.4, Nbr Intf Address: 10.0.24.2
+      Attribute Flags: 0x2
+      Ext Admin Group: 
+          Length: 256 bits
+          Value : 0x::2
+      Attribute Names: 
+      Unnamed bit    : 1 

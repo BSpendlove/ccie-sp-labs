@@ -1,0 +1,63 @@
+csr7#show mpls tr
+csr7#show mpls traffic-eng tunn
+csr7#show mpls traffic-eng tunnels 
+
+P2P TUNNELS/LSPs:
+
+P2MP TUNNELS:
+
+P2MP SUB-LSPS:
+csr7#
+csr7#show ip route 10.255.255.1/32
+                               ^
+% Invalid input detected at '^' marker.
+
+csr7#show ip route 10.255.255.1 255.255.255.255
+Routing entry for 10.255.255.1/32
+  Known via "ospf 1", distance 110, metric 4, type intra area
+  Last update from 10.0.67.6 on GigabitEthernet2, 22:48:03 ago
+  Routing Descriptor Blocks:
+  * 10.0.67.6, from 10.255.255.1, 22:48:03 ago, via GigabitEthernet2
+      Route metric is 4, traffic share count is 1
+csr7#trac
+csr7#traceroute 10.255.255.1 sou
+csr7#traceroute 10.255.255.1 source lo0
+Type escape sequence to abort.
+Tracing the route to 10.255.255.1
+VRF info: (vrf in name/id, vrf out name/id)
+  1 10.0.67.6 [MPLS: Label 24005 Exp 0] 18 msec 6 msec
+csr7#
+csr7#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+csr7(config)#no ip domain loo
+csr7(config)#no ip domain lookup 
+csr7(config)#end
+csr7#traceroute 10.255.255.1 source lo0        
+Type escape sequence to abort.
+Tracing the route to 10.255.255.1
+VRF info: (vrf in name/id, vrf out name/id)
+  1 10.0.67.6 [MPLS: Label 24005 Exp 0] 10 msec 6 msec 8 msec
+  2 10.0.36.3 [MPLS: Label 24000 Exp 0] 7 msec 7 msec 8 msec
+  3 10.0.13.1 9 msec *  7 msec
+csr7#
+csr7#
+csr7#show mpls for
+csr7#show mpls forwarding-table 
+Local      Outgoing   Prefix           Bytes Label   Outgoing   Next Hop    
+Label      Label      or Tunnel Id     Switched      interface              
+16         24007      10.0.12.0/24     0             Gi3        10.0.57.5   
+           24007      10.0.12.0/24     0             Gi2        10.0.67.6   
+17         24008      10.0.13.0/24     0             Gi2        10.0.67.6   
+18         24009      10.0.23.0/24     0             Gi2        10.0.67.6   
+19         24001      10.0.24.0/24     0             Gi3        10.0.57.5   
+20         Pop Label  10.0.36.0/24     0             Gi2        10.0.67.6   
+21         Pop Label  10.0.45.0/24     0             Gi3        10.0.57.5   
+22         Pop Label  10.0.56.0/24     0             Gi3        10.0.57.5   
+           Pop Label  10.0.56.0/24     0             Gi2        10.0.67.6   
+23         24005      10.255.255.1/32  0             Gi2        10.0.67.6   
+24         24006      10.255.255.3/32  0             Gi2        10.0.67.6   
+25         24000      10.255.255.4/32  0             Gi3        10.0.57.5   
+26         Pop Label  10.255.255.5/32  0             Gi3        10.0.57.5   
+27         Pop Label  10.255.255.6/32  0             Gi2        10.0.67.6   
+28         24011      10.255.255.2/32  0             Gi3        10.0.57.5   
+           24011      10.255.255.2/32  0             Gi2        10.0.67.6  

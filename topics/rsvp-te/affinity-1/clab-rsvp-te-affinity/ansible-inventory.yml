@@ -1,0 +1,20 @@
+all:
+  children:
+    vr-csr:
+      hosts:
+        clab-rsvp-te-affinity-csr2:
+          ansible_host: 172.20.20.3
+        clab-rsvp-te-affinity-csr7:
+          ansible_host: 172.20.20.4
+    vr-xrv:
+      hosts:
+        clab-rsvp-te-affinity-xrv1:
+          ansible_host: 172.20.20.7
+        clab-rsvp-te-affinity-xrv3:
+          ansible_host: 172.20.20.5
+        clab-rsvp-te-affinity-xrv4:
+          ansible_host: 172.20.20.2
+        clab-rsvp-te-affinity-xrv5:
+          ansible_host: 172.20.20.8
+        clab-rsvp-te-affinity-xrv6:
+          ansible_host: 172.20.20.6

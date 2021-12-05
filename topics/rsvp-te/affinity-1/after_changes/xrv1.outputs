@@ -1,0 +1,121 @@
+RP/0/0/CPU0:xrv1#show run mpls traffic-eng 
+Sun Dec  5 18:47:47.180 UTC
+mpls traffic-eng
+ interface GigabitEthernet0/0/0/0
+  attribute-flags 0x1
+ !
+ interface GigabitEthernet0/0/0/1
+  attribute-flags 0x1
+ !
+ affinity-map red 0x2
+ affinity-map blue 0x4
+ affinity-map grey 0x1
+!
+
+RP/0/0/CPU0:xrv1#sh run int tunnel-te0
+Sun Dec  5 18:47:51.100 UTC
+interface tunnel-te0
+ ipv4 unnumbered Loopback0
+ autoroute announce
+ !
+ destination 10.255.255.7
+ affinity include red
+ affinity include grey
+ path-option 10 dynamic
+!
+
+RP/0/0/CPU0:xrv1#
+RP/0/0/CPU0:xrv1#show ip route 10.255.255.7/32
+Sun Dec  5 18:47:56.789 UTC
+
+Routing entry for 10.255.255.7/32
+  Known via "ospf 1", distance 110, metric 4, type intra area
+  Installed Dec  5 18:45:34.059 for 00:02:22
+  Routing Descriptor Blocks
+    10.255.255.7, from 10.255.255.7, via tunnel-te0
+      Route metric is 4
+  No advertising protos. 
+RP/0/0/CPU0:xrv1#
+RP/0/0/CPU0:xrv1#show cef 10.255.255.7/32
+Sun Dec  5 18:48:02.209 UTC
+10.255.255.7/32, version 48, internal 0x1000001 0x0 (ptr 0xa12dc0ec) [1], 0x0 (0xa12c15cc), 0xa20 (0xa1469208)
+ Updated Dec  5 18:45:34.099
+ Prefix Len 32, traffic index 0, precedence n/a, priority 3
+   via 10.255.255.7/32, tunnel-te0, 5 dependencies, weight 0, class 0 [flags 0x0]
+    path-idx 0 NHID 0x0 [0xa166e5bc 0xa166e504]
+    next hop 10.255.255.7/32
+    local adjacency
+     local label 24011      labels imposed {ImplNull}
+RP/0/0/CPU0:xrv1#
+RP/0/0/CPU0:xrv1#
+RP/0/0/CPU0:xrv1#
+RP/0/0/CPU0:xrv1#show mpls forwarding 
+Sun Dec  5 18:48:10.489 UTC
+Local  Outgoing    Prefix             Outgoing     Next Hop        Bytes       
+Label  Label       or ID              Interface                    Switched    
+------ ----------- ------------------ ------------ --------------- ------------
+24000  Pop         10.255.255.3/32    Gi0/0/0/1    10.0.13.3       158397      
+24001  Pop         10.0.23.0/24       Gi0/0/0/0    10.0.12.2       0           
+       Pop         10.0.23.0/24       Gi0/0/0/1    10.0.13.3       0           
+24002  Pop         10.0.36.0/24       Gi0/0/0/1    10.0.13.3       0           
+24003  24          10.255.255.4/32    Gi0/0/0/0    10.0.12.2       0           
+24004  25          10.255.255.5/32    Gi0/0/0/0    10.0.12.2       0           
+       24003       10.255.255.5/32    Gi0/0/0/1    10.0.13.3       0           
+24005  24004       10.255.255.6/32    Gi0/0/0/1    10.0.13.3       0           
+24006  Pop         10.0.24.0/24       Gi0/0/0/0    10.0.12.2       0           
+24007  18          10.0.45.0/24       Gi0/0/0/0    10.0.12.2       0           
+24008  24007       10.0.56.0/24       Gi0/0/0/1    10.0.13.3       0           
+24009  20          10.0.57.0/24       Gi0/0/0/0    10.0.12.2       0           
+       24008       10.0.57.0/24       Gi0/0/0/1    10.0.13.3       0           
+       Unlabelled  10.0.57.0/24       tt0          10.255.255.7    0           
+24010  24009       10.0.67.0/24       Gi0/0/0/1    10.0.13.3       0           
+24011  Pop         10.255.255.7/32    tt0          10.255.255.7    0           
+24012  Pop         10.255.255.2/32    Gi0/0/0/0    10.0.12.2       7072110     
+RP/0/0/CPU0:xrv1#traceroute 10.255.255.7 source lo0
+Sun Dec  5 18:48:19.168 UTC
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.7
+
+ 1  10.0.12.2 [MPLS: Label 28 Exp 0] 29 msec  9 msec  0 msec 
+ 2  10.0.24.4 [MPLS: Label 24013 Exp 0] 9 msec  9 msec  0 msec 
+ 3  10.0.45.5 [MPLS: Label 24012 Exp 0] 0 msec  0 msec  0 msec 
+ 4  10.0.57.7 9 msec  *  0 msec 
+RP/0/0/CPU0:xrv1#
+RP/0/0/CPU0:xrv1#conf t
+Sun Dec  5 18:48:43.696 UTC
+RP/0/0/CPU0:xrv1(config)#int tunnel-te0
+RP/0/0/CPU0:xrv1(config-if)#shutdown 
+RP/0/0/CPU0:xrv1(config-if)#commit
+Sun Dec  5 18:48:46.786 UTC
+RP/0/0/CPU0:xrv1(config-if)#end
+RP/0/0/CPU0:xrv1#traceroute 10.255.255.7 source lo0
+Sun Dec  5 18:48:51.006 UTC
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.7
+
+ 1  10.0.13.3 [MPLS: Label 24010 Exp 0] 9 msec  0 msec  0 msec 
+ 2  10.0.36.6 [MPLS: Label 24010 Exp 0] 0 msec  0 msec  0 msec 
+ 3  10.0.67.7 0 msec  *  0 msec 
+RP/0/0/CPU0:xrv1#
+RP/0/0/CPU0:xrv1#
+RP/0/0/CPU0:xrv1#conf t        
+Sun Dec  5 18:49:16.084 UTC
+RP/0/0/CPU0:xrv1(config)#int tunnel-te0
+RP/0/0/CPU0:xrv1(config-if)#no shut
+RP/0/0/CPU0:xrv1(config-if)#commit
+Sun Dec  5 18:49:19.764 UTC
+RP/0/0/CPU0:xrv1(config-if)#end
+RP/0/0/CPU0:xrv1#
+RP/0/0/CPU0:xrv1#traceroute 10.255.255.7 source lo0
+Sun Dec  5 18:49:22.604 UTC
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.7
+
+ 1  10.0.12.2 [MPLS: Label 29 Exp 0] 9 msec  0 msec  0 msec 
+ 2  10.0.24.4 [MPLS: Label 24013 Exp 0] 0 msec  0 msec  0 msec 
+ 3  10.0.45.5 [MPLS: Label 24012 Exp 0] 0 msec  0 msec  0 msec 
+ 4  10.0.57.7 0 msec  *  0 msec 
+RP/0/0/CPU0:xrv1#

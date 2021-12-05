@@ -1,0 +1,64 @@
+csr2#show lldp neighbors
+Capability codes:
+    (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+    (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+
+Device ID           Local Intf     Hold-time  Capability      Port ID
+xrv1                Gi2            120        R               Gi0/0/0/0
+xrv4                Gi4            120        R               Gi0/0/0/2
+xrv3                Gi3            120        R               Gi0/0/0/1
+
+Total entries displayed: 3
+
+csr2#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+csr2(config)#int g4
+csr2(config-if)#mpls tr
+csr2(config-if)#mpls traffic-eng af
+csr2(config-if)#mpls traffic-eng af?
+% Unrecognized command
+csr2(config-if)#mpls traffic-eng ? 
+  administrative-weight  Set the administrative weight for the interface
+  attribute-flags        Set user-defined interface attribute flags
+  auto-backup            Configure MPLS TE auto-backup attributes for this interface
+  backup-path            Configure an MPLS TE backup for this interface
+  flooding               Set flooding parameters
+  lmp                    MPLS Traffic Engineering LMP Commands
+  passive-interface      Force a flood of non-IGP link
+  srlg                   Set shared risk link group parameters
+  switching              Set interface switching descriptor parameters
+  tunnels                enable MPLS Traffic Engineering tunnels
+
+csr2(config-if)#mpls traffic-eng att
+csr2(config-if)#mpls traffic-eng attribute-flags ?
+  <0x0-0xFFFFFFFF>  Attribute flags
+
+csr2(config-if)#mpls traffic-eng attribute-flags 0x2
+csr2(config-if)#end
+csr2#show mpls tr
+csr2#show mpls traffic-eng top
+csr2#show mpls traffic-eng topology 10.255.255.2 ?
+  brief            Use brief format
+  internal         Use internal format
+  segment-routing  Display topology including Segment-Routing information
+  |                Output modifiers
+  <cr>             <cr>
+
+csr2#show mpls traffic-eng topology 10.255.255.2 brief
+
+IGP Id: 10.255.255.2, MPLS TE Id:10.255.255.2 Router Node  (ospf 1  area 0)
+      link[0]: Point-to-Point, Nbr IGP Id: 10.255.255.3, nbr_node_id:3, gen:6
+      frag_id: 3, Intf Address: 10.0.23.2, Nbr Intf Address: 10.0.23.3
+      TE metric: 1, IGP metric: 1, attribute flags: 0x0
+      SRLGs: None 
+
+      link[1]: Point-to-Point, Nbr IGP Id: 10.255.255.1, nbr_node_id:2, gen:6
+      frag_id: 2, Intf Address: 10.0.12.2, Nbr Intf Address: 10.0.12.1
+      TE metric: 1, IGP metric: 1, attribute flags: 0x0
+      SRLGs: None 
+
+      link[2]: Point-to-Point, Nbr IGP Id: 10.255.255.4, nbr_node_id:4, gen:6
+      frag_id: 4, Intf Address: 10.0.24.2, Nbr Intf Address: 10.0.24.4
+      TE metric: 1, IGP metric: 1, attribute flags: 0x2
+      SRLGs: None 
+csr2#

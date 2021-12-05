@@ -1,0 +1,66 @@
+RP/0/0/CPU0:xrv6#show lldp neighbors
+Sun Dec  5 18:13:28.411 UTC
+Capability codes:
+        (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+        (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+
+Device ID       Local Intf          Hold-time  Capability     Port ID
+csr7.example.com Gi0/0/0/0           120        R               Gi2
+xrv5            Gi0/0/0/1           120        R               Gi0/0/0/1
+xrv3            Gi0/0/0/2           120        R               Gi0/0/0/2
+
+Total entries displayed: 3
+
+RP/0/0/CPU0:xrv6#
+RP/0/0/CPU0:xrv6#conf t
+Sun Dec  5 18:13:33.421 UTC
+RP/0/0/CPU0:xrv6(config)#mpls traffic-eng 
+RP/0/0/CPU0:xrv6(config-mpls-te)#int g0/0/0/2
+RP/0/0/CPU0:xrv6(config-mpls-te-if)#attribute-flags 0x4
+RP/0/0/CPU0:xrv6(config-mpls-te-if)#commit
+Sun Dec  5 18:13:44.120 UTC
+RP/0/0/CPU0:xrv6(config-mpls-te-if)#end
+RP/0/0/CPU0:xrv6#
+RP/0/0/CPU0:xrv6#
+RP/0/0/CPU0:xrv6#show mpls traffic-eng topology 10.255.255.6 affinity 
+Sun Dec  5 18:13:49.450 UTC
+
+
+IGP Id: 10.255.255.6, MPLS TE Id: 10.255.255.6 Router Node  (OSPF 1 area 0)
+  Link[0]:      Intf Address: 10.0.36.6, Nbr Intf Address: 10.0.36.3
+      Attribute Flags: 0x4
+      Ext Admin Group: 
+          Length: 256 bits
+          Value : 0x::4
+      Attribute Names: 
+      Unnamed bit    : 2 
+
+RP/0/0/CPU0:xrv6#show mpls traffic-eng topology 10.255.255.1 affinity 
+Sun Dec  5 18:13:53.739 UTC
+
+
+IGP Id: 10.255.255.1, MPLS TE Id: 10.255.255.1 Router Node  (OSPF 1 area 0)
+RP/0/0/CPU0:xrv6#show mpls traffic-eng topology 10.255.255.2 affinity 
+Sun Dec  5 18:13:58.299 UTC
+
+
+IGP Id: 10.255.255.2, MPLS TE Id: 10.255.255.2 Router Node  (OSPF 1 area 0)
+  Link[0]:      Intf Address: 10.0.24.2, Nbr Intf Address: 10.0.24.4
+      Attribute Flags: 0x2
+      Ext Admin Group: 
+          Length: 256 bits
+          Value : 0x::2
+      Attribute Names: 
+      Unnamed bit    : 1 
+  Link[1]:      Intf Address: 10.0.23.2, Nbr Intf Address: 10.0.23.3
+      Attribute Flags: 0x0
+      Ext Admin Group: 
+          Length: 256 bits
+          Value : 0x::
+      Attribute Names: 
+  Link[2]:      Intf Address: 10.0.12.2, Nbr Intf Address: 10.0.12.1
+      Attribute Flags: 0x0
+      Ext Admin Group: 
+          Length: 256 bits
+          Value : 0x::
+      Attribute Names: 
