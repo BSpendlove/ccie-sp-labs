@@ -1,0 +1,20 @@
+all:
+  children:
+    vr-csr:
+      hosts:
+        clab-isis-sr-basic-csr2:
+          ansible_host: 172.20.20.5
+        clab-isis-sr-basic-csr7:
+          ansible_host: 172.20.20.2
+    vr-xrv:
+      hosts:
+        clab-isis-sr-basic-xrv1:
+          ansible_host: 172.20.20.3
+        clab-isis-sr-basic-xrv3:
+          ansible_host: 172.20.20.4
+        clab-isis-sr-basic-xrv4:
+          ansible_host: 172.20.20.8
+        clab-isis-sr-basic-xrv5:
+          ansible_host: 172.20.20.6
+        clab-isis-sr-basic-xrv6:
+          ansible_host: 172.20.20.7
