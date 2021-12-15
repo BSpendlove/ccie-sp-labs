@@ -1,0 +1,51 @@
+RP/0/0/CPU0:xrv1#show mpls traffic-eng tunnels 
+Wed Dec 15 20:14:36.951 UTC
+
+
+Name: tunnel-te0  Destination: 10.255.255.7  Ifhandle:0x110 
+  Signalled-Name: xrv1_t0
+  Status:
+    Admin:    up Oper:   up   Path:  valid   Signalling: connected
+
+    path option 10, (Segment-Routing) type dynamic  (Basis for Setup, path weight 1300)
+    G-PID: 0x0800 (derived from egress interface properties)
+    Bandwidth Requested: 0 kbps  CT0
+    Creation Time: Wed Dec 15 19:59:56 2021 (00:14:41 ago)
+  Config Parameters:
+    Bandwidth:        0 kbps (CT0) Priority:  7  7 
+    Number of affinity constraints: 1
+       Exclude bit map           : 0x80000000
+       Exclude ext bit map       : 
+           Length: 256 bits
+           Value : 0x::8000:0
+       Exclude affinity name     : BLUE(31) 
+
+    Metric Type: TE (global)
+    Path Selection:
+      Tiebreaker: Min-fill (default)
+      Protection: any (default)
+    Hop-limit: disabled
+    Cost-limit: disabled
+    Path-invalidation timeout: 10000 msec (default), Action: Tear (default)
+    AutoRoute:  enabled  LockDown: disabled   Policy class: not set
+    Forward class: 0 (default)
+    Forwarding-Adjacency: disabled
+    Autoroute Destinations: 0
+    Loadshare:          0 equal loadshares
+    Auto-bw: disabled
+    Path Protection: Not Enabled
+    BFD Fast Detection: Disabled
+    Reoptimization after affinity failure: Enabled
+    SRLG discovery: Disabled
+  History:
+    Tunnel has been up for: 00:14:41 (since Wed Dec 15 19:59:56 UTC 2021)
+    Current LSP:
+      Uptime: 00:14:41 (since Wed Dec 15 19:59:56 UTC 2021)
+
+  Segment-Routing Path Info (IS-IS 1 level-2)
+    Segment0[Link]: 10.0.12.1 - 10.0.12.2, Label: 24001
+    Segment1[Link]: 10.0.24.2 - 10.0.24.4, Label: 18
+    Segment2[Link]: 10.0.45.4 - 10.0.45.5, Label: 24003
+    Segment3[Link]: 10.0.57.5 - 10.0.57.7, Label: 24005
+Displayed 1 (of 1) heads, 0 (of 0) midpoints, 0 (of 0) tails
+Displayed 1 up, 0 down, 0 recovering, 0 recovered heads

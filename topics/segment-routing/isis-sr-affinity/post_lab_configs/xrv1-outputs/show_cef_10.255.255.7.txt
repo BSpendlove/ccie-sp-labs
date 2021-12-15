@@ -1,0 +1,34 @@
+RP/0/0/CPU0:xrv1#show cef 10.255.255.7/32
+Wed Dec 15 20:15:32.757 UTC
+10.255.255.7/32, version 82, labeled SR, internal 0x1000001 0x81 (ptr 0xa12dc1fc) [1], 0x0 (0xa12c1680), 0xa20 (0xa14691e0)
+ Updated Dec 15 19:59:57.072
+ Prefix Len 32, traffic index 0, precedence n/a, priority 3
+ Extensions: context-label:21007
+   via 10.255.255.7/32, tunnel-te0, 7 dependencies, weight 0, class 0 [flags 0x0]
+    path-idx 0 NHID 0x0 [0xa166e7e4 0xa166e72c]
+    next hop 10.255.255.7/32
+    local adjacency
+     local label 24009      labels imposed {ImplNull}
+RP/0/0/CPU0:xrv1#show cef 10.255.255.7/32 detail
+Wed Dec 15 20:15:36.687 UTC
+10.255.255.7/32, version 82, labeled SR, internal 0x1000001 0x81 (ptr 0xa12dc1fc) [1], 0x0 (0xa12c1680), 0xa20 (0xa14691e0)
+ Updated Dec 15 19:59:57.072
+ Prefix Len 32, traffic index 0, precedence n/a, priority 3
+ Extensions: context-label:21007
+  gateway array (0xa12263e8) reference count 3, flags 0x68, source lsd (5), 1 backups
+                [3 type 4 flags 0x8401 (0xa1483578) ext 0x0 (0x0)]
+  LW-LDI[type=1, refc=1, ptr=0xa12c1680, sh-ldi=0xa1483578]
+  gateway array update type-time 1 Dec 15 19:59:57.072
+ LDI Update time Dec 15 19:59:57.072
+ LW-LDI-TS Dec 15 19:59:57.072
+   via 10.255.255.7/32, tunnel-te0, 7 dependencies, weight 0, class 0 [flags 0x0]
+    path-idx 0 NHID 0x0 [0xa166e7e4 0xa166e72c]
+    next hop 10.255.255.7/32
+    local adjacency
+     local label 24009      labels imposed {ImplNull}
+
+
+    Load distribution: 0 (refcount 3)
+
+    Hash  OK  Interface                 Address
+    0     Y   tunnel-te0                point2point   

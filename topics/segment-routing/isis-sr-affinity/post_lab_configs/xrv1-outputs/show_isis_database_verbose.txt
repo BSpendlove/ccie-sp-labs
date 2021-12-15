@@ -1,0 +1,600 @@
+RP/0/0/CPU0:xrv1#show isis database verbose 
+Wed Dec 15 20:13:20.776 UTC
+
+IS-IS 1 (Level-1) Link State Database
+LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime  ATT/P/OL
+xrv1.00-00          * 0x0000000a   0x056a        446             0/0/0
+  Area Address:   49.0001
+  NLPID:          0xcc
+  NLPID:          0x8e
+  IP Address:     10.255.255.1
+  Hostname:       xrv1
+  IPv6 Address:   2001:db8::10:255:255:1
+  Router Cap:     10.255.255.1, D:0, S:0
+    Segment Routing: I:1 V:0, SRGB Base: 16000 Range: 8000
+    SR Algorithm: 
+      Algorithm: 0
+      Algorithm: 1
+    Node Maximum SID Depth: 
+      Subtype: 1, Value: 10
+
+ Total Level-1 LSP count: 1     Local Level-1 LSP count: 1
+
+IS-IS 1 (Level-2) Link State Database
+LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime  ATT/P/OL
+xrv1.00-00          * 0x0000000e   0xfff0        930             0/0/0
+  Area Address:   49.0001
+  NLPID:          0xcc
+  NLPID:          0x8e
+  IP Address:     10.255.255.1
+  Router ID:      10.255.255.1
+  Metric: 100        IP-Extended 10.0.12.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IP-Extended 10.0.13.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IP-Extended 10.255.255.1/32
+    Prefix-SID Index: 5001, Algorithm:0, R:0 N:1 P:0 E:0 V:0 L:0
+    Prefix Attribute Flags: X:0 R:0 N:1
+    Source Router ID: 10.255.255.1
+  Hostname:       xrv1
+  IPv6 Address:   2001:db8::10:255:255:1
+  Metric: 100        IPv6 2001:db8::10:0:12:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IPv6 2001:db8::10:0:13:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IPv6 2001:db8::10:255:255:1/128
+    Prefix Attribute Flags: X:0 R:0 N:1
+  Router Cap:     10.255.255.1, D:0, S:0
+    Segment Routing: I:1 V:0, SRGB Base: 16000 Range: 8000
+    SR Algorithm: 
+      Algorithm: 0
+      Algorithm: 1
+    Node Maximum SID Depth: 
+      Subtype: 1, Value: 10
+  Metric: 100        IS-Extended csr2.00
+    Interface IPv6 Address: 2001:db8::10:0:12:1
+    Neighbor IPv6 Address: 2001:db8::10:0:12:2
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.12.1
+    Neighbor IP Address: 10.0.12.2
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24001
+  Metric: 100        IS-Extended xrv3.00
+    Interface IPv6 Address: 2001:db8::10:0:13:1
+    Neighbor IPv6 Address: 2001:db8::10:0:13:3
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.13.1
+    Neighbor IP Address: 10.0.13.3
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24003
+csr2.00-00            0x0000000f   0x4480        663             0/0/0
+  Area Address:   49.0001
+  NLPID:          0xcc
+  NLPID:          0x8e
+  Router ID:      10.255.255.2
+  Router Cap:     10.255.255.2, D:0, S:0
+    Segment Routing: I:1 V:0, SRGB Base: 16000 Range: 8000
+    SR Algorithm: 
+      Algorithm: 0
+      Algorithm: 1
+    SubTLV 22: Length: 9
+    Node Maximum SID Depth: 
+      Subtype: 1, Value: 16
+  Hostname:       csr2
+  Metric: 1000       IS-Extended xrv1.00
+    Interface IP Address: 10.0.12.2
+    Neighbor IP Address: 10.0.12.1
+    Admin. Weight: 1000
+    Physical BW: 1000000 kbits/sec
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:16
+    Affinity: 0x00000000
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+  Metric: 1000       IS-Extended xrv3.00
+    Interface IP Address: 10.0.23.2
+    Neighbor IP Address: 10.0.23.3
+    Admin. Weight: 1000
+    Physical BW: 1000000 kbits/sec
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:17
+    Affinity: 0x00000000
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+  Metric: 1000       IS-Extended xrv4.00
+    Interface IP Address: 10.0.24.2
+    Neighbor IP Address: 10.0.24.4
+    Admin. Weight: 1000
+    Physical BW: 1000000 kbits/sec
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:18
+    Affinity: 0x40000000
+    Ext Admin Group: Length: 4
+      0x40000000
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+  IP Address:     10.255.255.2
+  Metric: 1000       IP-Extended 10.255.255.2/32
+    Prefix Attribute Flags: X:0 R:0 N:1
+    Source Router ID: 10.255.255.2
+    Prefix-SID Index: 5002, Algorithm:0, R:0 N:1 P:0 E:0 V:0 L:0
+  Metric: 1000       IP-Extended 10.0.12.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 1000       IP-Extended 10.0.23.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 1000       IP-Extended 10.0.24.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  IPv6 Address:   2001:db8::10:255:255:2
+  Metric: 1000       IPv6 2001:db8::10:255:255:2/128
+    Prefix Attribute Flags: X:0 R:0 N:1
+  Metric: 1000       IPv6 2001:db8::10:0:12:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 1000       IPv6 2001:db8::10:0:23:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 1000       IPv6 2001:db8::10:0:24:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+xrv3.00-00            0x0000000f   0xb675        1173            0/0/0
+  Area Address:   49.0001
+  Metric: 100        IS-Extended xrv1.00
+    Interface IPv6 Address: 2001:db8::10:0:13:3
+    Neighbor IPv6 Address: 2001:db8::10:0:13:1
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.13.3
+    Neighbor IP Address: 10.0.13.1
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24001
+  Metric: 100        IS-Extended csr2.00
+    Interface IPv6 Address: 2001:db8::10:0:23:3
+    Neighbor IPv6 Address: 2001:db8::10:0:23:2
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.23.3
+    Neighbor IP Address: 10.0.23.2
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24003
+  NLPID:          0xcc
+  NLPID:          0x8e
+  IP Address:     10.255.255.3
+  Router ID:      10.255.255.3
+  Metric: 100        IP-Extended 10.0.13.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IP-Extended 10.0.23.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IP-Extended 10.0.36.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IP-Extended 10.255.255.3/32
+    Prefix-SID Index: 5003, Algorithm:0, R:0 N:1 P:0 E:0 V:0 L:0
+    Prefix Attribute Flags: X:0 R:0 N:1
+    Source Router ID: 10.255.255.3
+  Hostname:       xrv3
+  IPv6 Address:   2001:db8::10:255:255:3
+  Metric: 100        IPv6 2001:db8::10:0:13:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IPv6 2001:db8::10:0:23:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IPv6 2001:db8::10:0:36:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IPv6 2001:db8::10:255:255:3/128
+    Prefix Attribute Flags: X:0 R:0 N:1
+  Router Cap:     10.255.255.3, D:0, S:0
+    Segment Routing: I:1 V:0, SRGB Base: 16000 Range: 8000
+    SR Algorithm: 
+      Algorithm: 0
+      Algorithm: 1
+    Node Maximum SID Depth: 
+      Subtype: 1, Value: 10
+  Metric: 100        IS-Extended xrv6.00
+    Interface IPv6 Address: 2001:db8::10:0:36:3
+    Neighbor IPv6 Address: 2001:db8::10:0:36:6
+    Affinity: 0x80000000
+    Interface IP Address: 10.0.36.3
+    Neighbor IP Address: 10.0.36.6
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x80000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24005
+xrv4.00-00            0x0000000d   0x2f41        526             0/0/0
+  Area Address:   49.0001
+  Metric: 100        IS-Extended csr2.00
+    Interface IPv6 Address: 2001:db8::10:0:24:4
+    Neighbor IPv6 Address: 2001:db8::10:0:24:2
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.24.4
+    Neighbor IP Address: 10.0.24.2
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24001
+  NLPID:          0xcc
+  NLPID:          0x8e
+  IP Address:     10.255.255.4
+  Router ID:      10.255.255.4
+  Metric: 100        IP-Extended 10.0.24.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IP-Extended 10.0.45.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IP-Extended 10.255.255.4/32
+    Prefix-SID Index: 5004, Algorithm:0, R:0 N:1 P:0 E:0 V:0 L:0
+    Prefix Attribute Flags: X:0 R:0 N:1
+    Source Router ID: 10.255.255.4
+  Hostname:       xrv4
+  IPv6 Address:   2001:db8::10:255:255:4
+  Metric: 100        IPv6 2001:db8::10:0:24:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IPv6 2001:db8::10:0:45:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IPv6 2001:db8::10:255:255:4/128
+    Prefix Attribute Flags: X:0 R:0 N:1
+  Router Cap:     10.255.255.4, D:0, S:0
+    Segment Routing: I:1 V:0, SRGB Base: 16000 Range: 8000
+    SR Algorithm: 
+      Algorithm: 0
+      Algorithm: 1
+    Node Maximum SID Depth: 
+      Subtype: 1, Value: 10
+  Metric: 100        IS-Extended xrv5.00
+    Interface IPv6 Address: 2001:db8::10:0:45:4
+    Neighbor IPv6 Address: 2001:db8::10:0:45:5
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.45.4
+    Neighbor IP Address: 10.0.45.5
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24003
+xrv5.00-00            0x0000000e   0xbca2        584             0/0/0
+  Area Address:   49.0001
+  Metric: 100        IS-Extended xrv4.00
+    Interface IPv6 Address: 2001:db8::10:0:45:5
+    Neighbor IPv6 Address: 2001:db8::10:0:45:4
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.45.5
+    Neighbor IP Address: 10.0.45.4
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24001
+  NLPID:          0xcc
+  NLPID:          0x8e
+  IP Address:     10.255.255.5
+  Router ID:      10.255.255.5
+  Metric: 100        IP-Extended 10.0.45.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IP-Extended 10.0.56.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IP-Extended 10.0.57.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IP-Extended 10.255.255.5/32
+    Prefix-SID Index: 5005, Algorithm:0, R:0 N:1 P:0 E:0 V:0 L:0
+    Prefix Attribute Flags: X:0 R:0 N:1
+    Source Router ID: 10.255.255.5
+  Hostname:       xrv5
+  IPv6 Address:   2001:db8::10:255:255:5
+  Metric: 100        IPv6 2001:db8::10:0:45:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IPv6 2001:db8::10:0:56:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IPv6 2001:db8::10:0:57:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IPv6 2001:db8::10:255:255:5/128
+    Prefix Attribute Flags: X:0 R:0 N:1
+  Router Cap:     10.255.255.5, D:0, S:0
+    Segment Routing: I:1 V:0, SRGB Base: 16000 Range: 8000
+    SR Algorithm: 
+      Algorithm: 0
+      Algorithm: 1
+    Node Maximum SID Depth: 
+      Subtype: 1, Value: 10
+  Metric: 100        IS-Extended xrv6.00
+    Interface IPv6 Address: 2001:db8::10:0:56:5
+    Neighbor IPv6 Address: 2001:db8::10:0:56:6
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.56.5
+    Neighbor IP Address: 10.0.56.6
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24003
+  Metric: 100        IS-Extended csr7.00
+    Interface IPv6 Address: 2001:db8::10:0:57:5
+    Neighbor IPv6 Address: 2001:db8::10:0:57:7
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.57.5
+    Neighbor IP Address: 10.0.57.7
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24005
+xrv6.00-00            0x0000000d   0xfd52        555             0/0/0
+  Area Address:   49.0001
+  Metric: 100        IS-Extended xrv3.00
+    Interface IPv6 Address: 2001:db8::10:0:36:6
+    Neighbor IPv6 Address: 2001:db8::10:0:36:3
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.36.6
+    Neighbor IP Address: 10.0.36.3
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24001
+  Metric: 100        IS-Extended xrv5.00
+    Interface IPv6 Address: 2001:db8::10:0:56:6
+    Neighbor IPv6 Address: 2001:db8::10:0:56:5
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.56.6
+    Neighbor IP Address: 10.0.56.5
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24003
+  NLPID:          0xcc
+  NLPID:          0x8e
+  IP Address:     10.255.255.6
+  Router ID:      10.255.255.6
+  Metric: 100        IP-Extended 10.0.36.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IP-Extended 10.0.56.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IP-Extended 10.0.67.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IP-Extended 10.255.255.6/32
+    Prefix-SID Index: 5006, Algorithm:0, R:0 N:1 P:0 E:0 V:0 L:0
+    Prefix Attribute Flags: X:0 R:0 N:1
+    Source Router ID: 10.255.255.6
+  Hostname:       xrv6
+  IPv6 Address:   2001:db8::10:255:255:6
+  Metric: 100        IPv6 2001:db8::10:0:36:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IPv6 2001:db8::10:0:56:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IPv6 2001:db8::10:0:67:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 0          IPv6 2001:db8::10:255:255:6/128
+    Prefix Attribute Flags: X:0 R:0 N:1
+  Router Cap:     10.255.255.6, D:0, S:0
+    Segment Routing: I:1 V:0, SRGB Base: 16000 Range: 8000
+    SR Algorithm: 
+      Algorithm: 0
+      Algorithm: 1
+    Node Maximum SID Depth: 
+      Subtype: 1, Value: 10
+  Metric: 100        IS-Extended csr7.00
+    Interface IPv6 Address: 2001:db8::10:0:67:6
+    Neighbor IPv6 Address: 2001:db8::10:0:67:7
+    Affinity: 0x00000000
+    Interface IP Address: 10.0.67.6
+    Neighbor IP Address: 10.0.67.7
+    Physical BW: 1000000 kbits/sec
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+    Admin. Weight: 100
+    Ext Admin Group: Length: 32
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+      0x00000000   0x00000000
+    Link Maximum SID Depth: 
+      Subtype: 1, Value: 10
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:24005
+csr7.00-00            0x0000000f   0x73e3        353             0/0/0
+  Area Address:   49.0001
+  NLPID:          0xcc
+  NLPID:          0x8e
+  Router ID:      10.255.255.7
+  Router Cap:     10.255.255.7, D:0, S:0
+    Segment Routing: I:1 V:0, SRGB Base: 16000 Range: 8000
+    SR Algorithm: 
+      Algorithm: 0
+      Algorithm: 1
+    SubTLV 22: Length: 9
+    Node Maximum SID Depth: 
+      Subtype: 1, Value: 16
+  Hostname:       csr7
+  Metric: 100        IS-Extended xrv6.00
+    Interface IP Address: 10.0.67.7
+    Neighbor IP Address: 10.0.67.6
+    Admin. Weight: 100
+    Physical BW: 1000000 kbits/sec
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:16
+    Affinity: 0x00000000
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+  Metric: 100        IS-Extended xrv5.00
+    Interface IP Address: 10.0.57.7
+    Neighbor IP Address: 10.0.57.5
+    Admin. Weight: 100
+    Physical BW: 1000000 kbits/sec
+    ADJ-SID: F:0 B:0 V:1 L:1 S:0 P:0 weight:0 Adjacency-sid:17
+    Affinity: 0x00000000
+    Reservable Global pool BW: 0 kbits/sec
+    Global Pool BW Unreserved: 
+      [0]: 0        kbits/sec          [1]: 0        kbits/sec
+      [2]: 0        kbits/sec          [3]: 0        kbits/sec
+      [4]: 0        kbits/sec          [5]: 0        kbits/sec
+      [6]: 0        kbits/sec          [7]: 0        kbits/sec
+  IP Address:     10.255.255.7
+  Metric: 0          IP-Extended 10.255.255.7/32
+    Prefix Attribute Flags: X:0 R:0 N:1
+    Source Router ID: 10.255.255.7
+    Prefix-SID Index: 5007, Algorithm:0, R:0 N:1 P:0 E:0 V:0 L:0
+  Metric: 100        IP-Extended 10.0.67.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IP-Extended 10.0.57.0/24
+    Prefix Attribute Flags: X:0 R:0 N:0
+  IPv6 Address:   2001:db8::10:255:255:7
+  Metric: 0          IPv6 2001:db8::10:255:255:7/128
+    Prefix Attribute Flags: X:0 R:0 N:1
+  Metric: 100        IPv6 2001:db8::10:0:67:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+  Metric: 100        IPv6 2001:db8::10:0:57:0/112
+    Prefix Attribute Flags: X:0 R:0 N:0
+
+ Total Level-2 LSP count: 7     Local Level-2 LSP count: 1

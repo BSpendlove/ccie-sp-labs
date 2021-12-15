@@ -1,0 +1,36 @@
+RP/0/0/CPU0:xrv1#show route
+Wed Dec 15 20:14:51.510 UTC
+
+Codes: C - connected, S - static, R - RIP, B - BGP, (>) - Diversion path
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+       U - per-user static route, o - ODR, L - local, G  - DAGR, l - LISP
+       A - access/subscriber, a - Application route
+       M - mobile route, r - RPL, t - Traffic Engineering, (!) - FRR Backup path
+
+Gateway of last resort is not set
+
+C    10.0.0.0/24 is directly connected, 21:27:28, MgmtEth0/0/CPU0/0
+L    10.0.0.15/32 is directly connected, 21:27:28, MgmtEth0/0/CPU0/0
+C    10.0.12.0/24 is directly connected, 10:30:58, GigabitEthernet0/0/0/0
+L    10.0.12.1/32 is directly connected, 10:30:58, GigabitEthernet0/0/0/0
+C    10.0.13.0/24 is directly connected, 10:30:58, GigabitEthernet0/0/0/1
+L    10.0.13.1/32 is directly connected, 10:30:58, GigabitEthernet0/0/0/1
+i L2 10.0.23.0/24 [115/200] via 10.0.13.3, 01:37:06, GigabitEthernet0/0/0/1
+i L2 10.0.24.0/24 [115/500] via 10.0.13.3, 01:27:24, GigabitEthernet0/0/0/1
+i L2 10.0.36.0/24 [115/200] via 10.0.13.3, 01:37:06, GigabitEthernet0/0/0/1
+i L2 10.0.45.0/24 [115/400] via 10.0.13.3, 01:27:24, GigabitEthernet0/0/0/1
+i L2 10.0.56.0/24 [115/300] via 10.0.13.3, 01:30:18, GigabitEthernet0/0/0/1
+i L2 10.0.57.0/24 [115/400] via 10.0.13.3, 00:14:54, GigabitEthernet0/0/0/1
+                  [115/400] via 10.255.255.7, 00:14:54, tunnel-te0
+i L2 10.0.67.0/24 [115/300] via 10.0.13.3, 01:30:18, GigabitEthernet0/0/0/1
+L    10.255.255.1/32 is directly connected, 10:30:58, Loopback0
+i L2 10.255.255.2/32 [115/1100] via 10.0.12.2, 01:40:50, GigabitEthernet0/0/0/0
+i L2 10.255.255.3/32 [115/100] via 10.0.13.3, 01:37:03, GigabitEthernet0/0/0/1
+i L2 10.255.255.4/32 [115/400] via 10.0.13.3, 01:27:24, GigabitEthernet0/0/0/1
+i L2 10.255.255.5/32 [115/300] via 10.0.13.3, 01:27:24, GigabitEthernet0/0/0/1
+i L2 10.255.255.6/32 [115/200] via 10.0.13.3, 01:30:13, GigabitEthernet0/0/0/1
+i L2 10.255.255.7/32 [115/300] via 10.255.255.7, 00:14:54, tunnel-te0

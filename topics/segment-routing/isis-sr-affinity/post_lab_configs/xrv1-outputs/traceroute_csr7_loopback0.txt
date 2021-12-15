@@ -1,0 +1,10 @@
+RP/0/0/CPU0:xrv1#traceroute 10.255.255.7 source lo0
+Wed Dec 15 20:15:15.698 UTC
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.7
+
+ 1  10.0.12.2 [MPLS: Labels 18/24003/24005 Exp 0] 19 msec  9 msec  9 msec 
+ 2  10.0.24.4 [MPLS: Labels 24003/24005 Exp 0] 9 msec  0 msec  0 msec 
+ 3  10.0.45.5 [MPLS: Label 24005 Exp 0] 0 msec  0 msec  0 msec 
+ 4  10.0.57.7 0 msec  *  9 msec 
