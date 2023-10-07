@@ -1,0 +1,46 @@
+name: bc2-yisp 
+
+topology:
+  kinds:
+    xrd:
+      type: cisco_xrd
+      image: ios-xr/xrd-control-plane:7.9.2
+
+    vr-cisco_csr1000v:
+      type: vr-cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.01
+
+  nodes:
+    y-p1:
+      kind: xrd
+    y-pe1:
+      kind: xrd
+    y-pe2:
+      kind: xrd
+    y-ce1:
+      kind: vr-cisco_csr1000v
+    y-ce2:
+      kind: vr-cisco_csr1000v
+    y-ce3:
+      kind: vr-cisco_csr1000v
+    y-ce4:
+      kind: xrd
+    y-asbr1:
+      kind: xrd
+    y-asbr2:
+      kind: xrd
+    y-rr1:
+      kind: vr-cisco_csr1000v
+
+  links:
+    - endpoints: ["y-p1:Gi0-0-0-0", "y-asbr1:Gi0-0-0-1"]
+    - endpoints: ["y-p1:Gi0-0-0-1", "y-asbr2:Gi0-0-0-2"]
+    - endpoints: ["y-p1:Gi0-0-0-2", "y-pe1:Gi0-0-0-0"]
+    - endpoints: ["y-p1:Gi0-0-0-3", "y-pe2:Gi0-0-0-0"]
+    - endpoints: ["y-p1:Gi0-0-0-4", "y-rr1:eth2"]
+    - endpoints: ["y-pe1:Gi0-0-0-1", "y-pe2:Gi0-0-0-1"]
+    - endpoints: ["y-pe1:Gi0-0-0-2", "y-ce2:eth3"]
+    - endpoints: ["y-pe1:Gi0-0-0-3", "y-ce1:eth2"]
+    - endpoints: ["y-pe2:Gi0-0-0-2", "y-ce1:eth3"]
+    - endpoints: ["y-pe2:Gi0-0-0-3", "y-ce3:eth3"]
+    - endpoints: ["y-pe2:Gi0-0-0-4", "y-ce4:Gi0-0-0-0"]

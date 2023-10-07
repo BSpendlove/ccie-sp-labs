@@ -1,0 +1,80 @@
+name: bc2-xisp
+
+topology:
+  kinds:
+    xrd:
+      type: cisco_xrd
+      image: ios-xr/xrd-control-plane:7.9.2
+
+    vr-cisco_csr1000v:
+      type: vr-cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.01
+
+  nodes:
+    x-p1:
+      kind: xrd
+    x-p2:
+      kind: xrd
+    x-p3:
+      kind: xrd
+    x-p4:
+      kind: xrd
+    x-pce1-rr1:
+      kind: xrd
+    x-pce2-rr2:
+      kind: xrd
+    x-pe1:
+      kind: xrd
+    x-pe2:
+      kind: xrd
+    x-pe3:
+      kind: xrd
+    x-pe4:
+      kind: xrd
+    x-ce1:
+      kind: vr-cisco_csr1000v
+    x-ce2:
+      kind: vr-cisco_csr1000v
+    x-ce3:
+      kind: vr-cisco_csr1000v
+    x-ce4:
+      kind: vr-cisco_csr1000v
+    x-ce5:
+      kind: vr-cisco_csr1000v
+    x-ce6:
+      kind: vr-cisco_csr1000v
+    x-asbr1:
+      kind: xrd
+    x-asbr2:
+      kind: xrd
+
+  links:
+    - endpoints: ["x-p1:Gi0-0-0-0", "x-pe1:Gi0-0-0-0"]
+    - endpoints: ["x-p1:Gi0-0-0-1", "x-pe2:Gi0-0-0-0"]
+    - endpoints: ["x-p1:Gi0-0-0-2", "x-asbr1:Gi0-0-0-0"]
+    - endpoints: ["x-p1:Gi0-0-0-3", "x-asbr2:Gi0-0-0-0"]
+    - endpoints: ["x-p1:Gi0-0-0-4", "x-pce1-rr1:Gi0-0-0-0"]
+    - endpoints: ["x-p1:Gi0-0-0-5", "x-p2:Gi0-0-0-5"]
+    - endpoints: ["x-p1:Gi0-0-0-6", "x-p3:Gi0-0-0-1"]
+    - endpoints: ["x-p2:Gi0-0-0-0", "x-asbr1:Gi0-0-0-1"]
+    - endpoints: ["x-p2:Gi0-0-0-1", "x-asbr2:Gi0-0-0-1"]
+    - endpoints: ["x-p2:Gi0-0-0-2", "x-pe1:Gi0-0-0-1"]
+    - endpoints: ["x-p2:Gi0-0-0-3", "x-pe2:Gi0-0-0-1"]
+    - endpoints: ["x-p2:Gi0-0-0-4", "x-pce2-rr2:Gi0-0-0-0"]
+    - endpoints: ["x-p2:Gi0-0-0-6", "x-p4:Gi0-0-0-1"]
+    - endpoints: ["x-p3:Gi0-0-0-0", "x-p4:Gi0-0-0-0"]
+    - endpoints: ["x-p3:Gi0-0-0-2", "x-pe3:Gi0-0-0-1"]
+    - endpoints: ["x-p3:Gi0-0-0-3", "x-pe4:Gi0-0-0-4"]
+    - endpoints: ["x-pe1:Gi0-0-0-2", "x-pe2:Gi0-0-0-2"]
+    - endpoints: ["x-pe1:Gi0-0-0-3", "x-ce1:eth3"]
+    - endpoints: ["x-pe1:Gi0-0-0-4", "x-ce2:eth4"]
+    - endpoints: ["x-pe1:Gi0-0-0-5", "x-ce5:eth1"]
+    - endpoints: ["x-pe2:Gi0-0-0-4", "x-ce2:eth3"]
+    - endpoints: ["x-pe2:Gi0-0-0-5", "x-ce1:eth4"]
+    - endpoints: ["x-pe2:Gi0-0-0-6", "x-ce4:eth1"]
+    - endpoints: ["x-pe3:Gi0-0-0-0", "x-pe4:Gi0-0-0-0"]
+    - endpoints: ["x-pe3:Gi0-0-0-2", "x-pe4:Gi0-0-0-2"]
+    - endpoints: ["x-pe3:Gi0-0-0-3", "x-ce3:eth1"]
+    - endpoints: ["x-pe4:Gi0-0-0-3", "x-ce6:eth1"]
+    - endpoints: ["x-asbr1:Gi0-0-0-2", "x-asbr2:Gi0-0-0-2"]
+    - endpoints: ["x-ce1:eth5", "x-ce2:eth5"]
