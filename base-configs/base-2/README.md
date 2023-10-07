@@ -10,7 +10,7 @@ are merging with a older service provider (ISP Y) which are running LDP and RSVP
 
 
 ## Loopbacks
-
+```
 Name		v4 Loopback	v6 Loopback
 SP-X-ASBR1	10.111.111.1	2001:db8:111::1
 SP-X-ASBR2	10.111.111.2	2001:db8:111::2
@@ -40,7 +40,7 @@ SP-Y-P1		10.222.222.7	2001:db8:222::7
 SP-Y-PE1	10.222.222.8	2001:db8:222::8
 SP-Y-PE2	10.222.222.9	2001:db8:222::9
 SP-Y-RR		10.222.222.10	2001:db8:222::10
-
+```
 ## Other infrastructure addressing
 
 All v4 and v6 addressing can be found on the article, along with high level diagrams for IGP design and BGP/MPLS/L3VPN/L2VPN design.
